@@ -20,10 +20,38 @@ public class DatabaseInit implements ApplicationRunner{
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+        // Listas de posibles valores para generar fotos de perfil de usuarios
+        String[] fotosUrl = {
+            "https://randomuser.me/api/portraits/men/1.jpg",
+            "https://randomuser.me/api/portraits/women/1.jpg",
+            "https://randomuser.me/api/portraits/men/2.jpg",
+            "https://randomuser.me/api/portraits/women/2.jpg",
+            "https://randomuser.me/api/portraits/men/3.jpg",
+            "https://randomuser.me/api/portraits/women/3.jpg",
+            "https://randomuser.me/api/portraits/men/4.jpg",
+            "https://randomuser.me/api/portraits/women/4.jpg",
+            "https://randomuser.me/api/portraits/men/5.jpg",
+            "https://randomuser.me/api/portraits/women/5.jpg",
+            "https://randomuser.me/api/portraits/men/6.jpg",
+            "https://randomuser.me/api/portraits/women/6.jpg",
+            "https://randomuser.me/api/portraits/men/7.jpg",
+            "https://randomuser.me/api/portraits/women/7.jpg",
+            "https://randomuser.me/api/portraits/men/8.jpg",
+            "https://randomuser.me/api/portraits/women/8.jpg",
+            "https://randomuser.me/api/portraits/men/9.jpg",
+            "https://randomuser.me/api/portraits/women/9.jpg",
+            "https://randomuser.me/api/portraits/men/10.jpg",
+            "https://randomuser.me/api/portraits/women/10.jpg",
+            "https://randomuser.me/api/portraits/women/11.jpg"
+        };
+
          // Listas de posibles valores para generar usuarios diversos
-        String[] nombres = {"Ana", "Carlos", "María", "Juan", "Laura", "Pedro", "Sofía", "Miguel", 
-                            "Isabel", "Roberto", "Elena", "Diego", "Carmen", "Luis", "Patricia",
-                            "Gabriel", "Valentina", "Andrés", "Lucía", "Fernando"};
+        String[] nombres = {
+            "Ana Ramírez", "Carlos Mendoza", "María Fernández", "Juan Herrera", "Laura Torres", 
+            "Pedro Guzmán", "Sofía Velasco", "Miguel Ochoa", "Isabel Quintana", "Roberto Soto", 
+            "Elena Martínez", "Diego Vargas", "Carmen Rivas", "Luis Morales", "Patricia Castillo",
+            "Gabriel Ortiz", "Valentina Ruiz", "Andrés Delgado", "Lucía Jiménez", "Fernando Cruz"
+        };
         
         String[] descripcionesProveedor = {
             "Guía certificado en senderismo ecológico con 10 años de experiencia en la Sierra local",
@@ -61,7 +89,7 @@ public class DatabaseInit implements ApplicationRunner{
             proveedor.setDescripcion(descripcionesProveedor[i]);
             proveedor.setTipo(0); // 0 para proveedor
             proveedor.setEliminado(false);
-            
+            proveedor.setFoto(fotosUrl[i]);
             
             repositorio.save(proveedor);
         }
@@ -76,6 +104,7 @@ public class DatabaseInit implements ApplicationRunner{
             cliente.setDescripcion(descripcionesCliente[i - 15]);
             cliente.setTipo(1); // 1 para cliente
             cliente.setEliminado(false);
+            cliente.setFoto(fotosUrl[i]);
             
             repositorio.save(cliente);
         }
