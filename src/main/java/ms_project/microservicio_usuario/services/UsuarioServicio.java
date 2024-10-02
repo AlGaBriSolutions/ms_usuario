@@ -64,8 +64,8 @@ public class UsuarioServicio {
             if (usuarioo.getDescripcion() != null) {
                 usuarioDB.setDescripcion(usuarioo.getDescripcion());
             }
-            if (usuarioo.getUsuario() != null) {
-                usuarioDB.setUsuario(usuarioo.getUsuario());
+            if (usuarioo.getUsername() != null) {
+                usuarioDB.setUsername(usuarioo.getUsername());
             }
             if (usuarioo.getContrasena() != null) {
                 usuarioDB.setContrasena(usuarioo.getContrasena());

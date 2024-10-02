@@ -1,8 +1,5 @@
 package ms_project.microservicio_usuario.entities;
 
-import java.sql.Blob;
-import java.util.ArrayList;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,12 +21,26 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nombre;
-    private String usuario;
+    private String username;
     private String contrasena;
-    private Blob foto;
+    private String foto;
     private Integer edad;
     private String descripcion;
-    private ArrayList<Integer> items;
+    //0: Proveedor
+    //1: Cliente
     private Integer tipo;
-    private Boolean Eliminado;
+    private Boolean eliminado;
+
+    public Usuario(String nombre, String username, String contrasena, String foto, Integer edad, String descripcion, Integer tipo, Boolean eliminado) {
+        this.nombre = nombre;
+        this.username = username;
+        this.contrasena = contrasena;
+        this.foto = foto;
+        this.edad = edad;
+        this.descripcion = descripcion;
+        this.tipo = tipo;
+        this.eliminado = eliminado;
+    }
+
+    
 }
